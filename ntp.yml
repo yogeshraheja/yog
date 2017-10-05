@@ -1,0 +1,13 @@
+---
+- name: This is my NTP Playbook
+  hosts: localhost
+
+  tasks:
+  -  name: Installing NTP Package
+     yum: name=ntp state=present
+
+  -  name: Creating file
+     file: path=/etc/ntp.conf state=file
+
+  -  name: Starting and Enabling Service Across reboots
+     service: name=ntpd state=started enabled=yes
