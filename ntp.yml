@@ -3,7 +3,7 @@
   hosts: localhost
   remote_user: jenkins
   become: True
-  become_method: sudo
+  become_method: su
   become_user: root
   
 
