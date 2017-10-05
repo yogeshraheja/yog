@@ -1,9 +1,6 @@
 ---
 - name: This is my NTP Playbook
   hosts: localhost
-  remote_user: jenkins
-  become: True
-  become_user: root
   
 
   tasks:
