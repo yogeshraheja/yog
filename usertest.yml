@@ -7,4 +7,4 @@
   -  name: Installing NTP Package
      user: name=testuser state=present
   -  name: Testing package
-     yum: name=talk state-present
+     yum: name=talk state=present
