@@ -12,4 +12,4 @@
 
   -  name: Starting and Enabling Service Across reboots
      service: name=ntpd state=started enabled=yes
-...
+
