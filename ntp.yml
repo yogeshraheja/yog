@@ -1,6 +1,7 @@
 ---
 - name: This is my NTP Playbook
   hosts: "*"
+  become: root
   
 
   tasks:
