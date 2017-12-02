@@ -9,6 +9,3 @@
   -  name: Testing package
      yum: name=talk state=present
 
-# Ending the code
-# Test
-
