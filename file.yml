@@ -1,0 +1,7 @@
+---
+- name: Creating file
+  hosts: "*"
+
+  tasks:
+  - name: Creatimg file
+    file: path=/var/tmp/yogeshtesting state=touch
