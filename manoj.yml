@@ -8,3 +8,6 @@
 
   - name: Creating a file inside Manoj Sir directory
     file: path=/var/tmp/manojsir/testingfile state=touch
+    
+  - name: Installing talk package
+    yum: name=talk state=present
