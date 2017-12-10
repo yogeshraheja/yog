@@ -21,4 +21,4 @@
      file: path=/var/tmp/yogeshtest state=touch
 
   -  name: Creating directory
-     file: path=/var/tmp/testingdir owner=jenkins group=docker state=directory
+     file: path=/var/tmp/testingdir owner=jenkins mode=0777 state=directory
