@@ -1,0 +1,32 @@
+---
+- name: Playbook to install Puppet Agent software
+  hosts: "*"
+
+  tasks:
+    - name: Creating a directory for Puppet software
+      file: path=/var/tmp/puppetsoftware state=directory
+
+    - name: Downloading Puppet Repository
+      get_url: url=http://yum.puppetlabs.com/puppet5/puppet-release-el-7.noarch.rpm dest=/var/tmp/puppetsoftware
+
+    - name: Install the Repository Package for Puppet
+      yum: name=/var/tmp/puppetsoftware/puppet-release-el-7.noarch.rpm state=present
+
+    - name: Refreshing Yum repository
+      command: "yum repolist"
+
+    - name: Install Puppet Agent Package
+      yum: name=puppet-agent state=present
+
+    - name: Amending Puppet Configuration file for Master Node details
+      lineinfile: path=/etc/puppetlabs/puppet/puppet.conf line=[main]
+
+    - name: Amending Puppet Configuration file for Master Node details
+      lineinfile: path=/etc/puppetlabs/puppet/puppet.conf line="certname = puppet.agent.com"
+
+    - name: Amending Puppet Configuration file for Master Node details
+      lineinfile: path=/etc/puppetlabs/puppet/puppet.conf line="server = puppet.master.com"
+
+    - name: Starting Puppet Services to generate Puppet Node certificate against Puppet Master
+      service: name=puppet state=started enabled=yes
+...
