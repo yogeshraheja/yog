@@ -1,0 +1,22 @@
+---
+- name: Playbook to install Puppet Master software
+  hosts: "*"
+
+  tasks:
+    - name: Creating a directory for Puppet software
+      file: path=/var/tmp/puppetsoftware state=directory
+
+    - name: Downloading Puppet Repository
+      get_url: url=http://yum.puppetlabs.com/puppet5/puppet-release-el-7.noarch.rpm dest=/var/tmp/puppetsoftware
+
+    - name: Install the Repository Package for Puppet
+      yum: name=/var/tmp/puppetsoftware/puppet-release-el-7.noarch.rpm state=present
+
+    - name: Refreshing Yum repository
+      command: "yum repolist"
+
+    - name: Install Puppet Master Package
+      yum: name=puppetserver state=present
+      
+    - name: Starting Puppet Master Services
+      service: name=puppetserver state=started enabled=yes
