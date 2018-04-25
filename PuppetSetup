@@ -1,3 +1,10 @@
+Pre-requsites:
+
+Set hostname using hostnamectl 
+Persistent hostname in /etc/hosts (put private IP for AWS instances)
+
+===========================
+
 Puppet Master Setup:
 
 rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
