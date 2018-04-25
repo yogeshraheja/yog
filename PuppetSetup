@@ -1,0 +1,34 @@
+Puppet Master Setup:
+
+rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+
+yum -y install puppetserver
+
+rpm -qa | grep -i puppet
+/opt/puppetlabs/server/bin/puppetserver --version
+/opt/puppetlabs/bin/puppet --version
+
+cat /etc/puppetlabs/puppet/puppet.conf
+
+systemctl status puppetserver
+systemctl start puppetserver
+systemctl status puppetserver
+
+=============================
+
+Puppet Agent Setup
+
+rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+
+yum -y install puppet-agent
+
+EDIT PUPPET CONFIG FILE
+
+vi /etc/puppetlabs/puppet/puppet.conf
+[main]
+certname = <Agent FQDN>
+server = <Master FQDN>
+
+systemctl status puppet
+systemctl start puppet
+systemctl status puppet
