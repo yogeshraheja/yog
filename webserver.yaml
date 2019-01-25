@@ -11,7 +11,7 @@
     - name: Checking the existing file
       copy:
         dest: /var/www/html/index.html
-        content: "Hello DevOps people!"
+        content: "Hello DevOps people we are looking to see continuous delivery in simple way!"
 
     - name: Starting apache2 service
       service:
