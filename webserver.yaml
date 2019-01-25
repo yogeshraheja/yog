@@ -1,0 +1,19 @@
+---
+- name: This is a playbook for Webserver creation
+  hosts: client.example.com
+
+  tasks:
+    - name: Installing webserver package
+      package:
+        name: apache2
+        state: present
+
+    - name: Checking the existing file
+      copy:
+        dest: /var/www/html/index.html
+        content: "Hello DevOps people!"
+
+    - name: Starting apache2 service
+      service:
+        name: apache2
+        state: started
